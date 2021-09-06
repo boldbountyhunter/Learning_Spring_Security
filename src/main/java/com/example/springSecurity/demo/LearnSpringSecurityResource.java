@@ -1,6 +1,7 @@
 package com.example.springSecurity.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,5 +20,10 @@ public class LearnSpringSecurityResource {
     @GetMapping(value = "/admin")
     public String sayHey() {
         return "Heyy Saurav";
+    }
+
+    @GetMapping(value = "/admin/{name}")
+    public String sayHeyWithName(@PathVariable String name) {
+        return "Heyy "+name;
     }
 }
