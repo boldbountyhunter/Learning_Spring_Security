@@ -19,9 +19,8 @@ public class MyUserDetails implements UserDetails {
 
     public MyUserDetails(User user) {
         this.user = user;
-        this.authorities = Arrays.stream(user.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+        this.authorities = Arrays.asList(new SimpleGrantedAuthority(user.getRoles()));
+
     }
 
     @Override
